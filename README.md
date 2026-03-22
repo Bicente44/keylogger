@@ -1,14 +1,15 @@
 # keylogger
 - This program is entirely made in C and is used to capture user keyboard input
-- As windows and linux work differently i will make 2 programs in the same project (2 different builds)
+- This is purely for educational purposes and I strongly advise keyloggers to be used with permission
 
 ## TODO
-- Create the linux keylogger
-- Create the windows keylogger
-- Make it so it builds the right one depending on the OS ? or an option feature ?
+- Implement the windows keylogger
+- Add an output file to both keyloggers
 
-## keylogger - LINUX
-- This is the linux version, it will run on option 1
+## LINUX
+- Runs if preprocessor detects Linux, excluding WSL.
+- Reads from /dev/input/ key stream
 
 ## keylogger - WINDOWS
-- This is the windows version, it will run on option 2
+- Runs if the preprocessor detects Windows or WSL.
+- 
