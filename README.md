@@ -10,7 +10,6 @@
 - Runs if preprocessor detects Linux, excluding WSL.
 - Reads from /dev/input/ key stream
 
-bash
 ```
 # Install dependencys:
 - GCC (or some C compiler)
@@ -19,11 +18,10 @@ bash
 gcc -Wall -Wextra main.c linux_keylogger.c -o keylogger
 ```
 
-## keylogger - WINDOWS
+## WINDOWS
 - Runs if the preprocessor detects Windows or WSL.
 - 
 
-bash
 ```
 # Install dependencys:
 - mingw-w64 (Including WSL (WindowsSubsystemLinux))
